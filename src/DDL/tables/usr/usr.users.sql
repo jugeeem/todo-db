@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS usr.users (
+	id	UUID	PRIMARY KEY	DEFAULT uuid_generate_v4(),
+
+	username	VARCHAR(256) 	NOT NULL 	UNIQUE,
+	email		VARCHAR(256)	NOT NULL 	UNIQUE,
+	password	VARCHAR(512)	NOT NULL,
+
+	created_at	TIMESTAMP WITH TIME ZONE	NOT NULL	DEFAULT NOW(),
+	created_by	UUID				NOT NULL,
+	updated_at	TIMESTAMP WITH TIME ZONE	NOT NULL	DEFAULT NOW(),
+	updated_by	UUID				NOT NULL,
+	deleted_at	TIMESTAMP WITH TIME ZONE,
+	deleted_by	UUID
+);

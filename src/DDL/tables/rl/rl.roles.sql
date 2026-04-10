@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS rl.roles (
+	id	UUID	PRIMARY KEY	DEFAULT uuid_generate_v4(),
+
+	name		VARCHAR(256) 	NOT NULL 	UNIQUE,
+	description	TEXT,
+
+	created_at	TIMESTAMP WITH TIME ZONE	NOT NULL	DEFAULT NOW(),
+	created_by	UUID				NOT NULL,
+	updated_at	TIMESTAMP WITH TIME ZONE	NOT NULL	DEFAULT NOW(),
+	updated_by	UUID				NOT NULL,
+	deleted_at	TIMESTAMP WITH TIME ZONE,
+	deleted_by	UUID
+);
